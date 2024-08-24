@@ -15,7 +15,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             url: `${DEFAULT_WEBSITE_URL}/blog/${slug}`,
             lastModified: updatedAt ? new Date(updatedAt) : new Date(),
         }))
-        : [];
+        : [
+            {
+                url: `${DEFAULT_WEBSITE_URL}/`
+            }
+        ]
     return [
         {
             url: `${DEFAULT_WEBSITE_URL}/privacy`

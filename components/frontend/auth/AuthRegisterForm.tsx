@@ -3,7 +3,7 @@ import Input from "../Input";
 import Socials from "./Socials";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useTransition } from "react";
+import { Suspense, useState, useTransition } from "react";
 import { RegisterSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -48,7 +48,8 @@ const AuthRegisterForm = () => {
     });
   };
   return (
-    <div className="min-h-screen flex items-center justify-center  py-20 contain">
+    <Suspense fallback={<p>Loading form...</p>}>
+      <div className="min-h-screen flex items-center justify-center  py-20 contain">
       <div className="max-w-md w-full bg-white p-8 rounded-lg drop-shadow-sm border border-border">
         <div className="flex flex-col items-center justify-center mb-4">
         <Image src={"/logo.png"} width={56} height={56} alt="Jspeeps" className="object-cover h-14 w-14 rounded-full ring-2 ring-muted-foreground"  />
@@ -161,6 +162,7 @@ const AuthRegisterForm = () => {
         </p>
       </div>
     </div>
+    </Suspense>
   );
 };
 

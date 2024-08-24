@@ -41,7 +41,8 @@ const EmailActive = () => {
     onSubmit();
   }, [onSubmit]);
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-white py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Suspense fallback={<p>Loading form...</p>}>
+      <div className="min-h-screen flex flex-col justify-center items-center bg-white py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="bg-white border border-border p-8 rounded-lg shadow-lg text-center w-full max-w-md ">
         <h2 className="text-2xl font-bold capitalize mb-4">
           {success ? "Email Activated" : "Email Verification Status"}
@@ -93,6 +94,7 @@ const EmailActive = () => {
         )}
       </div>
     </div>
+    </Suspense>
   );
 };
 export function EmailActivation() {
