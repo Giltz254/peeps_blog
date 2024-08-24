@@ -1,6 +1,6 @@
 import EmailActivation from "@/components/frontend/auth/NewVerification"
 
-const NewVerification = () => {
+const page = () => {
   return (
     <div className="w-full bg-white">
       <EmailActivation />
@@ -8,4 +8,4 @@ const NewVerification = () => {
   )
 }
 
-export default NewVerification
+export default page;

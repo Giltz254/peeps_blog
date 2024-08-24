@@ -1,5 +1,5 @@
 import NewPasswordForm from "@/components/frontend/auth/NewPassword";
-const NewPassword = () => {
+const page = () => {
   return (
     <div className="w-full bg-muted/10">
         <NewPasswordForm />
@@ -7,4 +7,4 @@ const NewPassword = () => {
   );
 };
 
-export default NewPassword;
+export default page;

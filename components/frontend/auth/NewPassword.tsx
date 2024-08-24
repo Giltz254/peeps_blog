@@ -3,7 +3,7 @@ import Input from "../Input";
 import Socials from "./Socials";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { NewPasswordSchema } from "@/schemas";
@@ -15,7 +15,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { newPassword } from "@/actions/new-password";
 
 type newPasswordFormValues = z.infer<typeof NewPasswordSchema>;
-const PasswordForm = () => {
+const NewPasswordForm = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const token = searchParams.get("token");
@@ -136,11 +136,4 @@ const PasswordForm = () => {
   );
 };
 
-export default function NewPasswordForm() {
-  return (
-    <Suspense fallback={<p>Loading form...</p>}>
-      <PasswordForm />
-    </Suspense>
-  )
-}
-
+export default NewPasswordForm;

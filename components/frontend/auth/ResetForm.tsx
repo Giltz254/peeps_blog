@@ -3,7 +3,7 @@ import Input from "../Input";
 import Socials from "./Socials";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { ResetSchema } from "@/schemas";
@@ -14,7 +14,7 @@ import FormSuccess from "@/components/Form-success";
 import { resetPass } from "@/actions/reset";
 
 type resetFormValues = z.infer<typeof ResetSchema>;
-const Reset = () => {
+const ResetForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -134,10 +134,4 @@ const Reset = () => {
   );
 };
 
-export default function ResetForm() {
-  return (
-    <Suspense fallback={<p>Loading form...</p>}>
-      <Reset />
-    </Suspense>
-  )
-}
+export default  ResetForm;

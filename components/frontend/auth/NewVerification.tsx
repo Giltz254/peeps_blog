@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { newVerification } from "@/actions/new-verification";
 import Formerror from "@/components/Form-error";
 
-const EmailActive = () => {
+const EmailActivation = () => {
   const router = useRouter();
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
@@ -95,10 +95,4 @@ const EmailActive = () => {
     </div>
   );
 };
-export default function EmailActivation() {
-  return (
-    <Suspense fallback={<p>Loading form...</p>}>
-      <EmailActive />
-    </Suspense>
-  )
-}
+export default EmailActivation;

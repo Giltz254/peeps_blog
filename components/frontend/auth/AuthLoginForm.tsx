@@ -1,11 +1,9 @@
 "use client";
 import Input from "../Input";
-import { SlLock } from "react-icons/sl";
-import { MdMailOutline } from "react-icons/md";
 import Socials from "./Socials";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { LoginSchema } from "@/schemas";
@@ -17,7 +15,7 @@ import FormSuccess from "@/components/Form-success";
 import { useSearchParams } from "next/navigation";
 
 type loginFormValues = z.infer<typeof LoginSchema>;
-const LoginForm = () => {
+const AuthLoginForm = () => {
   const searchParams = useSearchParams();
   const urlError =
     searchParams.get("error") === "OAuthAccountNotLinked"
@@ -170,10 +168,4 @@ const LoginForm = () => {
   );
 };
 
-export default function AuthLoginForm() {
-  return (
-    <Suspense fallback={<p>Loading form...</p>}>
-      <LoginForm />
-    </Suspense>
-  )
-}
+export default AuthLoginForm;

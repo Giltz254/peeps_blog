@@ -1,7 +1,7 @@
 import AuthLoginForm from '@/components/frontend/auth/AuthLoginForm'
 import React from 'react'
 
-const SignIn = () => {
+const page = () => {
   return (
     <div className='bg-muted/10 w-full'>
         <AuthLoginForm />
@@ -9,4 +9,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn
+export default page

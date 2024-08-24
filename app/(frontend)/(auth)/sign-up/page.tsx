@@ -1,6 +1,6 @@
 import AuthRegisterForm from '@/components/frontend/auth/AuthRegisterForm'
 
-const Signup = () => {
+const page = () => {
   return (
     <div className='bg-muted/10 w-full'>
         <AuthRegisterForm />
@@ -8,4 +8,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default page

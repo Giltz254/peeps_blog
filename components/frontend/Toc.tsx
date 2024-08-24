@@ -1,7 +1,7 @@
 "use client";
 
 import { slugify } from "@/constants";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PiDotDuotone } from "react-icons/pi";
 
 const Toc = ({ selector }: { selector: string }) => {
@@ -72,37 +72,34 @@ const Toc = ({ selector }: { selector: string }) => {
   }, [currentHeadingID]);
 
   return (
-    <Suspense fallback={<p>Loading...</p>}>
-      <div className="w-full" ref={listWrapperRef}>
-        <p className="text-base font-bold leading-7 w-full">In this page</p>
-        {headings &&
-          headings.map((head) => {
-            const tagLevel = head.tagName.match(/(\d+)/)?.[0] || "1";
-            return (
-              <button
-                data-id={head.dataset.id}
-                key={head.dataset.id}
-                style={{ paddingLeft: +tagLevel * 7 + "px" }}
-                className={`flex py-2 pr-3 font-normal w-full items-start text-start ${
-                  currentHeadingID === head.dataset.id
-                    ? "text-primary border-l border-border"
-                    : "text-black"
-                }`}
-                onClick={() => {
-                  window.scrollTo({
-                    top:
-                      head.getBoundingClientRect().top + window.scrollY - 120,
-                    behavior: "smooth",
-                  });
-                }}
-              >
-                <PiDotDuotone size={24} className="mr-2" />
-                {head.innerHTML}
-              </button>
-            );
-          })}
-      </div>
-    </Suspense>
+    <div className="w-full" ref={listWrapperRef}>
+      <p className="text-base font-bold leading-7 w-full">In this page</p>
+      {headings &&
+        headings.map((head) => {
+          const tagLevel = head.tagName.match(/(\d+)/)?.[0] || "1";
+          return (
+            <button
+              data-id={head.dataset.id}
+              key={head.dataset.id}
+              style={{ paddingLeft: +tagLevel * 7 + "px" }}
+              className={`flex py-2 pr-3 font-normal w-full items-start text-start ${
+                currentHeadingID === head.dataset.id
+                  ? "text-primary border-l border-border"
+                  : "text-black"
+              }`}
+              onClick={() => {
+                window.scrollTo({
+                  top: head.getBoundingClientRect().top + window.scrollY - 120,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              <PiDotDuotone size={24} className="mr-2" />
+              {head.innerHTML}
+            </button>
+          );
+        })}
+    </div>
   );
 };
 

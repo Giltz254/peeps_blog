@@ -1,6 +1,6 @@
 import Toc from '@/components/frontend/Toc'
 
-const Privacy = () => {
+const page = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 min-h-screen">
       <h1 className="text-2xl pt-2 text-black font-bold mb-4 capitalize">Privacy Policy</h1>
@@ -33,4 +33,4 @@ const Privacy = () => {
   )
 }
 
-export default Privacy
+export default page

@@ -3,7 +3,7 @@ import Input from "../Input";
 import Socials from "./Socials";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { RegisterSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -14,7 +14,7 @@ import Formerror from "@/components/Form-error";
 import FormSuccess from "@/components/Form-success";
 
 type registerFormValues = z.infer<typeof RegisterSchema>;
-const RegisterForm = () => {
+const AuthRegisterForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -164,10 +164,4 @@ const RegisterForm = () => {
   );
 };
 
-export default function AuthRegisterForm() {
-  return (
-    <Suspense>
-      <RegisterForm />
-    </Suspense>
-  )
-}
+export default AuthRegisterForm;
