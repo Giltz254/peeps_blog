@@ -11,18 +11,18 @@ import { notFound } from "next/navigation";
 type BlogSlug = {
   slug: string;
 };
-export async function generateStaticParams() {
-  const response = await fetch(`${DEFAULT_WEBSITE_URL}/api/blog/slug`, {
-    next: { tags: ["blogs"] },
-  });
-  if (!response.ok) {
-    return [];
-  }
-  const slugs: BlogSlug[] = await response.json();
-  return slugs.map((slug) => ({
-    slug: slug.slug,
-  }));
-}
+// export async function generateStaticParams() {
+//   const response = await fetch(`${DEFAULT_WEBSITE_URL}/api/blog/slug`, {
+//     next: { tags: ["blogs"] },
+//   });
+//   if (!response.ok) {
+//     return [];
+//   }
+//   const slugs: BlogSlug[] = await response.json();
+//   return slugs.map((slug) => ({
+//     slug: slug.slug,
+//   }));
+// }
 
 export async function generateMetadata({
   params,
