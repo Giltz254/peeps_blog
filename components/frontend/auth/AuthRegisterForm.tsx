@@ -4,7 +4,7 @@ import Socials from "./Socials";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useTransition } from "react";
-import { RegisterSchema } from "@/schemas";
+import { RegisterSchema } from "@/schemas/index";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { registerUser } from "@/actions/register";

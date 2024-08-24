@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState, useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { LoginSchema } from "@/schemas";
+import { LoginSchema } from "@/schemas/index";
 import { useForm } from "react-hook-form";
 import { login } from "@/actions/login";
 import ErrorMessage from "./ErrorMessage";

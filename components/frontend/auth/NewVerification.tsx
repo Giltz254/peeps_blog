@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { newVerification } from "@/actions/new-verification";
 import Formerror from "@/components/Form-error";
@@ -11,6 +11,9 @@ const EmailActivation = () => {
   const [success, setSuccess] = useState<string | undefined>("");
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
+  if (!token) {
+    return null
+  }
   const hasSubmitted = useRef(false);
 
   const onSubmit = useCallback(() => {

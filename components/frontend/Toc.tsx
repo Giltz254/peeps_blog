@@ -1,6 +1,6 @@
 "use client";
 
-import { slugify } from "@/constants";
+import { slugify } from "@/constants/index";
 import { useEffect, useRef, useState } from "react";
 import { PiDotDuotone } from "react-icons/pi";
 

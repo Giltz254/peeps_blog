@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState, useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { NewPasswordSchema } from "@/schemas";
+import { NewPasswordSchema } from "@/schemas/index";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage";
 import Formerror from "@/components/Form-error";
