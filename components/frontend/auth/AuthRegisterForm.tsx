@@ -14,7 +14,7 @@ import Formerror from "@/components/Form-error";
 import FormSuccess from "@/components/Form-success";
 
 type registerFormValues = z.infer<typeof RegisterSchema>;
-const AuthRegisterForm = () => {
+const RegisterForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -48,7 +48,6 @@ const AuthRegisterForm = () => {
     });
   };
   return (
-    <Suspense fallback={<p>Loading form...</p>}>
       <div className="min-h-screen flex items-center justify-center  py-20 contain">
       <div className="max-w-md w-full bg-white p-8 rounded-lg drop-shadow-sm border border-border">
         <div className="flex flex-col items-center justify-center mb-4">
@@ -162,8 +161,13 @@ const AuthRegisterForm = () => {
         </p>
       </div>
     </div>
-    </Suspense>
   );
 };
 
-export default AuthRegisterForm;
+export function AuthRegisterForm() {
+  return (
+    <Suspense>
+      <RegisterForm />
+    </Suspense>
+  )
+}

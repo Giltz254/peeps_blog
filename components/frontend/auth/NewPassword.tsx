@@ -15,7 +15,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { newPassword } from "@/actions/new-password";
 
 type newPasswordFormValues = z.infer<typeof NewPasswordSchema>;
-const NewPasswordForm = () => {
+const PasswordForm = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const token = searchParams.get("token");
@@ -48,7 +48,6 @@ const NewPasswordForm = () => {
     });
   };
   return (
-    <Suspense fallback={<p>Loading form...</p>}>
       <div className="min-h-screen flex items-center justify-center  py-20 contain">
       <div className="max-w-md w-full bg-white p-8 rounded-lg drop-shadow-sm border border-border">
         <div className="flex flex-col items-center justify-center mb-4">
@@ -134,8 +133,14 @@ const NewPasswordForm = () => {
         </p>
       </div>
     </div>
-    </Suspense>
   );
 };
 
-export default NewPasswordForm;
+export function NewPasswordForm() {
+  return (
+    <Suspense fallback={<p>Loading form...</p>}>
+      <PasswordForm />
+    </Suspense>
+  )
+}
+

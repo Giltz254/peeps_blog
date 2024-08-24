@@ -14,7 +14,7 @@ import FormSuccess from "@/components/Form-success";
 import { resetPass } from "@/actions/reset";
 
 type resetFormValues = z.infer<typeof ResetSchema>;
-const ResetForm = () => {
+const Reset = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -46,7 +46,6 @@ const ResetForm = () => {
     });
   };
   return (
-    <Suspense fallback={<p>Loading form...</p>}>
       <div className="min-h-screen flex items-center justify-center  py-20 contain">
       <div className="max-w-md w-full bg-white p-8 rounded-lg drop-shadow-sm border border-border">
         <div className="flex flex-col items-center justify-center mb-4">
@@ -132,8 +131,13 @@ const ResetForm = () => {
         </p>
       </div>
     </div>
-    </Suspense>
   );
 };
 
-export default ResetForm;
+export function ResetForm() {
+  return (
+    <Suspense fallback={<p>Loading form...</p>}>
+      <Reset />
+    </Suspense>
+  )
+}

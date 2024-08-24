@@ -17,7 +17,7 @@ import FormSuccess from "@/components/Form-success";
 import { useSearchParams } from "next/navigation";
 
 type loginFormValues = z.infer<typeof LoginSchema>;
-const AuthLoginForm = () => {
+const LoginForm = () => {
   const searchParams = useSearchParams();
   const urlError =
     searchParams.get("error") === "OAuthAccountNotLinked"
@@ -57,7 +57,6 @@ const AuthLoginForm = () => {
     });
   };
   return (
-    <Suspense fallback={<p>Loading form...</p>}>
       <div className="min-h-screen flex items-center justify-center  py-20 contain">
       <div className="max-w-md w-full bg-white p-8 rounded-lg drop-shadow-sm border border-border">
         <div className="flex flex-col items-center justify-center mb-4">
@@ -168,8 +167,13 @@ const AuthLoginForm = () => {
         </p>
       </div>
     </div>
-    </Suspense>
   );
 };
 
-export default AuthLoginForm;
+export function AuthLoginForm() {
+  return (
+    <Suspense fallback={<p>Loading form...</p>}>
+      <LoginForm />
+    </Suspense>
+  )
+}
