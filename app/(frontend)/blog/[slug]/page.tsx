@@ -8,6 +8,7 @@ import SingleBlogAside from "@/components/frontend/SingleBlogAside";
 import { DEFAULT_WEBSITE_URL } from "@/constants";
 import { currentUser } from "@/lib/auth";
 import { notFound } from "next/navigation";
+// export const dynamic = 'force-static'
 type BlogSlug = {
   slug: string;
 };

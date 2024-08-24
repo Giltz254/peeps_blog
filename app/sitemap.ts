@@ -7,13 +7,15 @@ type sitemapProps = {
 }
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const response = await fetch(`${DEFAULT_WEBSITE_URL}/api/sitemap`, {
-        next: { tags: ["blogs"] }
+        next: { tags: ["blogs"] }, cache: "force-cache"
     })
     const blogs: sitemapProps[] = await response.json();
-    const blogEntries: MetadataRoute.Sitemap = blogs.map(({slug, updatedAt}) => ({
-        url: `${DEFAULT_WEBSITE_URL}/blog/${slug}`,
-        lastModified: updatedAt ? new Date(updatedAt) : new Date(),
-    }))
+    const blogEntries: MetadataRoute.Sitemap = blogs.length > 0 
+        ? blogs.map(({ slug, updatedAt }) => ({
+            url: `${DEFAULT_WEBSITE_URL}/blog/${slug}`,
+            lastModified: updatedAt ? new Date(updatedAt) : new Date(),
+        }))
+        : [];
     return [
         {
             url: `${DEFAULT_WEBSITE_URL}/privacy`
