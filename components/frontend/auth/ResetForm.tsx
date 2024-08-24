@@ -134,7 +134,7 @@ const Reset = () => {
   );
 };
 
-export function ResetForm() {
+export default function ResetForm() {
   return (
     <Suspense fallback={<p>Loading form...</p>}>
       <Reset />

@@ -1,4 +1,4 @@
-import { EmailActivation } from "@/components/frontend/auth/NewVerification"
+import EmailActivation from "@/components/frontend/auth/NewVerification"
 
 const NewVerification = () => {
   return (

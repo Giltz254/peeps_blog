@@ -170,7 +170,7 @@ const LoginForm = () => {
   );
 };
 
-export function AuthLoginForm() {
+export default function AuthLoginForm() {
   return (
     <Suspense fallback={<p>Loading form...</p>}>
       <LoginForm />

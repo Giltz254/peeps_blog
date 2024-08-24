@@ -164,7 +164,7 @@ const RegisterForm = () => {
   );
 };
 
-export function AuthRegisterForm() {
+export default function AuthRegisterForm() {
   return (
     <Suspense>
       <RegisterForm />

@@ -136,7 +136,7 @@ const PasswordForm = () => {
   );
 };
 
-export function NewPasswordForm() {
+export default function NewPasswordForm() {
   return (
     <Suspense fallback={<p>Loading form...</p>}>
       <PasswordForm />

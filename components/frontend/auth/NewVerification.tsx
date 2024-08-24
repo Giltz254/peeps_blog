@@ -95,7 +95,7 @@ const EmailActive = () => {
     </div>
   );
 };
-export function EmailActivation() {
+export default function EmailActivation() {
   return (
     <Suspense fallback={<p>Loading form...</p>}>
       <EmailActive />
